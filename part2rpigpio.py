@@ -19,46 +19,46 @@ GPIO.setup(switch2, GPIO.IN)
 # Initial state for LEDs:
 GPIO.output(led1, 0)
 GPIO.output(led2, 0)
-GPIO.output(led3, 0)			  
+GPIO.output(led3, 0)              
 
 
-while true:
+while True:
 
-	if GPIO.input(switch1) and GPIO.input(switch2):
-		float timecount = 0
-		while timecount < 4:
-			if not(GPIO.input(switch1) and GPIO.input(switch2)) :
-			   break;
-			if timecount < 2:
-			   GPIO.output(led1, 1)
-			   GPIO.output(led2, 1)
-			   GPIO.output(led3, 1)
-			else :
-			   GPIO.output(led1, 0)
-			   GPIO.output(led2, 0)
-			   GPIO.output(led3, 0)
-			time.sleep(0.2)
-			timecount += 0.2
-	 elif not(GPIO.input(switch1) or GPIO.input(switch2)):
-		GPIO.output(led1, 0)
-		GPIO.output(led2, 0)
-		GPIO.output(led3, 0)
-		time.sleep(0.2)
-   	 else:
-		float timecount = 0.0
-		while timecount < 3.0
-	   		if GPIO.input(switch1) == GPIO.input(switch2) :
-	      			break;
-	   		if timecount < 1.0 :
-              			GPIO.output(led3, 0)
-              			GPIO.output(led1, 1)
-           		elif timecount < 2.0 :
-              			GPIO.output(led1, 0)
-              			GPIO.output(led2, 1)
-           		else :
-              			GPIO.output(led2, 0)
-              			GPIO.output(led3, 1)
-	   		timecount += 0.2
-	   		time.sleep(0.2)
+    if not(GPIO.input(switch1) or GPIO.input(switch2)):
+        timecount = 0.0
+        while timecount < 4:
+            if (GPIO.input(switch1) or GPIO.input(switch2)) :
+               break;
+            if timecount < 2:
+               GPIO.output(led1, 1)
+               GPIO.output(led2, 1)
+               GPIO.output(led3, 1)
+            else :
+               GPIO.output(led1, 0)
+               GPIO.output(led2, 0)
+               GPIO.output(led3, 0)
+            sleep(0.2)
+            timecount += 0.2
+    elif (GPIO.input(switch1) and GPIO.input(switch2)):
+        GPIO.output(led1, 0)
+        GPIO.output(led2, 0)
+        GPIO.output(led3, 0)
+        sleep(0.2)
+    else:
+        timecount = 0.0
+        while timecount < 3.0 :
+            if GPIO.input(switch1) == GPIO.input(switch2) :
+                    break;
+            if timecount < 1.0 :
+                        GPIO.output(led3, 0)
+                        GPIO.output(led1, 1)
+            elif timecount < 2.0 :
+                        GPIO.output(led1, 0)
+                        GPIO.output(led2, 1)
+            else :
+                        GPIO.output(led2, 0)
+                        GPIO.output(led3, 1)
+            timecount += 0.2
+            sleep(0.2)
            
-			   
+               
